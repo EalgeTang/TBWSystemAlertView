@@ -4,6 +4,7 @@
 大部分情况下可能我们只是想要单纯的显示出一个提示框，而不需要其他额外的操作，那么我们可以向这样去使用这个类
 [TBWSystemAlertView showTBWSystemAlertWithTitle:@"指纹验证成功" message:nil presentedViewController:self]。
 亦或是我们需要是和系统一样带有确定，和取消按钮。但只是展示的title和内容与系统略有不同，而且我们也希望获取用户的点击事件以此再来做些操作的话，那么为了方便，你可以这么做
+
     [TBWSystemAlertView ShowTBWSheetWithTitle:@"提示"
                                       message:@"message" presentViewController:self
                            sureButtonComplete:^{
@@ -11,7 +12,9 @@
     } cancleButtonComplete:^{
         NSLog(@"cancle button is clicked");
     }];
+    
     当然我也提供有一个与系统类似的实例方法，与类方法，来方便你的更多个性化需求
+    
         TBWSystemAlertView *alert = [[TBWSystemAlertView alloc] initWithTitle:@"title"
                                                                 alertType:TBWSystemAlertTypeAlert
                                                                   message:@"this is a message"
