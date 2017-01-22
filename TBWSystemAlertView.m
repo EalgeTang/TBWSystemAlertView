@@ -22,6 +22,7 @@
 @property (nonatomic, copy) NSString *sureButtonString;
 @property (nonatomic, copy) NSString *cancleButtonString;
 @property (nonatomic, copy) NSString *destructiveButtonString;
+
 @end
 @implementation TBWSystemAlertView
 
@@ -49,6 +50,7 @@ static void * const AssociatedStorageKey = (void *)&AssociatedStorageKey;
     sheet.cancleButtonComplete = cancleComplete;
     return sheet;
 }
+
 #pragma mark -
 /**
  * 创建一个自带确定 和取消按钮的alert
@@ -95,7 +97,7 @@ static void * const AssociatedStorageKey = (void *)&AssociatedStorageKey;
                                                                     alertType:TBWSystemAlertTypeAlert
                                                                       message:message
                                                        destructiveButtonTitle:nil
-                                                              sureButtonTitle:nil
+                                                              sureButtonTitle:@"确定"
                                                             cancleButtonTitle:nil
                                                             otherButtonTitles:nil];
     return alert;
@@ -140,7 +142,11 @@ static void * const AssociatedStorageKey = (void *)&AssociatedStorageKey;
         }
         va_end(argList);
     }
-    [otherTitles addObject:cancleButtonTitle];
+    if (cancleButtonTitle)
+    {
+      [otherTitles addObject:cancleButtonTitle];
+    }
+
     
     [otherTitles enumerateObjectsUsingBlock:^(NSString *str, NSUInteger idx, BOOL * _Nonnull stop) {
         

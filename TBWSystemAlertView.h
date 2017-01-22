@@ -14,6 +14,7 @@ typedef NS_ENUM(NSUInteger, TBWSystemAlertType) {
 };
 
 @class TBWSystemAlertView;
+
 typedef void(^buttonClickComplete)(void);
 typedef void(^buttonClickCompleteIndex)(NSInteger buttonIndex, TBWSystemAlertView *alert);
 
